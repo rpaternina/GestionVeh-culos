@@ -46,6 +46,7 @@ public class GestionVehiculos {
 
                                 switch (menu2) {
                                     case 1:
+                                        String marca = JOptionPane.showInputDialog(null,"Ingrese la marca del Auto");
 
                                         break;
                                     case 2:
