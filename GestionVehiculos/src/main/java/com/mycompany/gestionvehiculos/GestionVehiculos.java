@@ -23,7 +23,7 @@ public class GestionVehiculos {
         List<Motocicleta> listaMotocicleta = new ArrayList<Motocicleta>();
         
         boolean salirMenu1 = true;
-        boolean salirMenu2 = true;
+        
 
         while (salirMenu1) {
             
@@ -37,6 +37,8 @@ public class GestionVehiculos {
 
                 switch (menu) {
                     case 1:
+                        
+                        boolean salirMenu2 = true;
                         while (salirMenu2) {
                             try {
                                 int menu2 = Integer.parseInt(JOptionPane.showInputDialog(null, "ESCOJA EL TIPO DE VEHÍCULO \n"
@@ -46,15 +48,41 @@ public class GestionVehiculos {
 
                                 switch (menu2) {
                                     case 1:
-                                        
+
+                                        StringBuilder mostrarMetodo = new StringBuilder();
                                         int numeroPuertas = Integer.parseInt(JOptionPane.showInputDialog(null, "Numero de puertas"));
-                                        String marca = JOptionPane.showInputDialog(null,"Marca");
-                                        String matricula = JOptionPane.showInputDialog(null,"Matricula");
-                                        int modelo = Integer.parseInt(JOptionPane.showInputDialog(null, "Numero de puertas"));
+                                        String marca = JOptionPane.showInputDialog(null, "Marca");
+                                        String matricula = JOptionPane.showInputDialog(null, "Matricula");
+                                        int modelo = Integer.parseInt(JOptionPane.showInputDialog(null, "Modelo"));
                                         float mantenimiento = Float.parseFloat(JOptionPane.showInputDialog(null, "Costo del mantenimiento"));
+
+                                        listaAuto.add(new Auto(numeroPuertas, marca, matricula, modelo, mantenimiento));
+
+                                        for (Auto metodoAuto : listaAuto) {
+
+                                            mostrarMetodo.append("Costo matenimiento: ").append(metodoAuto.calcularCostoMantenimiento());
+                                        }
+                                        JOptionPane.showMessageDialog(null, mostrarMetodo.toString());
 
                                         break;
                                     case 2:
+                                        
+                                        StringBuilder mostrarMetodo2 = new StringBuilder();
+                                        int cilindraje = Integer.parseInt(JOptionPane.showInputDialog(null, "Cilindraje"));
+                                        String marcaMoto = JOptionPane.showInputDialog(null, "Marca");
+                                        String matriculaMoto = JOptionPane.showInputDialog(null, "Matricula");
+                                        int modeloMoto = Integer.parseInt(JOptionPane.showInputDialog(null, "Modelo"));
+                                        float mantenimientoMoto = Float.parseFloat(JOptionPane.showInputDialog(null, "Costo del mantenimiento"));
+                                      
+                                        listaMotocicleta.add(new Motocicleta(cilindraje,matriculaMoto,marcaMoto,modeloMoto,mantenimientoMoto));
+                                        
+                                        for(Motocicleta metodoMotocilceta: listaMotocicleta){
+                                            
+                                            mostrarMetodo2.append("Costo mantenimiento: ").append(metodoMotocilceta.calcularCostoMantenimiento());
+                                        }
+                                        
+                                        JOptionPane.showMessageDialog(null, mostrarMetodo2.toString());
+                                        
                                         break;
                                         
                                     case 3:
