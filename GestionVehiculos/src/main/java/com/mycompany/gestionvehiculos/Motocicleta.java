@@ -20,7 +20,7 @@ public class Motocicleta extends Vehiculo{
     @Override
     public float calcularCostoMantenimiento() {
         
-        float costoAuto = costoMantenimiento * cilindraje / 100; 
+        float costoAuto = (costoMantenimiento * cilindraje) / 100; 
         return costoAuto;
     }
     

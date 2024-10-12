@@ -46,7 +46,12 @@ public class GestionVehiculos {
 
                                 switch (menu2) {
                                     case 1:
-                                        String marca = JOptionPane.showInputDialog(null,"Ingrese la marca del Auto");
+                                        
+                                        int numeroPuertas = Integer.parseInt(JOptionPane.showInputDialog(null, "Numero de puertas"));
+                                        String marca = JOptionPane.showInputDialog(null,"Marca");
+                                        String matricula = JOptionPane.showInputDialog(null,"Matricula");
+                                        int modelo = Integer.parseInt(JOptionPane.showInputDialog(null, "Numero de puertas"));
+                                        float mantenimiento = Float.parseFloat(JOptionPane.showInputDialog(null, "Costo del mantenimiento"));
 
                                         break;
                                     case 2:
