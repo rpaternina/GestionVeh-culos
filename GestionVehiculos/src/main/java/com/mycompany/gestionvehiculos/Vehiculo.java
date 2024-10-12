@@ -5,9 +5,9 @@ public class Vehiculo {
     protected String matricula;
     protected String marca;
     protected int modelo;
-    protected double costoMantenimiento;
+    protected float costoMantenimiento;
 
-    public Vehiculo(String matricula, String marca, int modelo, double costoMantenimiento) {
+    public Vehiculo(String matricula, String marca, int modelo, float costoMantenimiento) {
         this.matricula = matricula;
         this.marca = marca;
         this.modelo = modelo;
@@ -42,14 +42,12 @@ public class Vehiculo {
         return costoMantenimiento;
     }
 
-    public void setCostoMantenimiento(double costoMantenimiento) {
+    public void setCostoMantenimiento(float costoMantenimiento) {
         this.costoMantenimiento = costoMantenimiento;
     }
     
-    public void calcularCostoMantenimiento(){
-        
+    public float calcularCostoMantenimiento(){
+        return costoMantenimiento;
     }
     
-    
-
 }
