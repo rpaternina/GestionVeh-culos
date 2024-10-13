@@ -19,14 +19,13 @@ public class GestionVehiculos {
         
         
         List<Auto> listaAuto = new ArrayList<Auto>();
-        
+
         List<Motocicleta> listaMotocicleta = new ArrayList<Motocicleta>();
-        
+
         boolean salirMenu1 = true;
-        
 
         while (salirMenu1) {
-            
+
             try {
                 int menu = Integer.parseInt(JOptionPane.showInputDialog(null, "GESTIÓN DE VEHÍCULO \n"
                         + "1: Agregar vehículo \n"
@@ -37,7 +36,7 @@ public class GestionVehiculos {
 
                 switch (menu) {
                     case 1:
-                        
+
                         boolean salirMenu2 = true;
                         while (salirMenu2) {
                             try {
@@ -56,7 +55,7 @@ public class GestionVehiculos {
                                         int modelo = Integer.parseInt(JOptionPane.showInputDialog(null, "Modelo"));
                                         float mantenimiento = Float.parseFloat(JOptionPane.showInputDialog(null, "Costo del mantenimiento"));
 
-                                        listaAuto.add(new Auto(numeroPuertas, marca, matricula, modelo, mantenimiento));
+                                        listaAuto.add(new Auto(numeroPuertas,matricula, marca, modelo, mantenimiento));
 
                                         for (Auto metodoAuto : listaAuto) {
 
@@ -66,29 +65,29 @@ public class GestionVehiculos {
 
                                         break;
                                     case 2:
-                                        
+
                                         StringBuilder mostrarMetodo2 = new StringBuilder();
                                         int cilindraje = Integer.parseInt(JOptionPane.showInputDialog(null, "Cilindraje"));
                                         String marcaMoto = JOptionPane.showInputDialog(null, "Marca");
                                         String matriculaMoto = JOptionPane.showInputDialog(null, "Matricula");
                                         int modeloMoto = Integer.parseInt(JOptionPane.showInputDialog(null, "Modelo"));
                                         float mantenimientoMoto = Float.parseFloat(JOptionPane.showInputDialog(null, "Costo del mantenimiento"));
-                                      
-                                        listaMotocicleta.add(new Motocicleta(cilindraje,matriculaMoto,marcaMoto,modeloMoto,mantenimientoMoto));
-                                        
-                                        for(Motocicleta metodoMotocilceta: listaMotocicleta){
-                                            
+
+                                        listaMotocicleta.add(new Motocicleta(cilindraje, matriculaMoto, marcaMoto, modeloMoto, mantenimientoMoto));
+
+                                        for (Motocicleta metodoMotocilceta : listaMotocicleta) {
+
                                             mostrarMetodo2.append("Costo mantenimiento: ").append(metodoMotocilceta.calcularCostoMantenimiento());
                                         }
-                                        
+
                                         JOptionPane.showMessageDialog(null, mostrarMetodo2.toString());
-                                        
+
                                         break;
-                                        
+
                                     case 3:
                                         salirMenu2 = false;
                                         break;
-                                        
+
                                     default:
                                         JOptionPane.showMessageDialog(null, "Ingrese una opción valida 1-5");
                                 }
@@ -98,21 +97,57 @@ public class GestionVehiculos {
                         }
 
                         break;
-                        
+
                     //Mostrar todos los vehículos    
                     case 2:
+
+                        boolean salirMenu3 = true;
+                        while (salirMenu3) {
+                            try {
+                                int menu3 = Integer.parseInt(JOptionPane.showInputDialog(null, "MOSTRAR VEHÍCULOS \n"
+                                        + "1: Autos \n"
+                                        + "2: Motocicletas \n"
+                                        + "3: Menú principal"));
+
+                                switch (menu3) {
+                                    case 1:
+                                        StringBuilder vehiculos = new StringBuilder();
+
+                                        if (listaAuto.isEmpty()) {
+                                            JOptionPane.showMessageDialog(null, "No hay Autos registrados");
+                                        } else {
+                                            for (Auto mostrarAutos : listaAuto) {
+                                                vehiculos.append("Autos \n").append("Marca: ").append(mostrarAutos.getMarca().toUpperCase()).append("\n")
+                                                        .append("Modelo: ").append(mostrarAutos.getModelo());
+                                            }
+
+                                            JOptionPane.showMessageDialog(null, vehiculos.toString());
+                                        }
+                                        break;
+                                    case 2:
+                                        break;
+                                    case 3:
+                                        salirMenu3 = false;
+                                        break;
+                                    default:
+                                        JOptionPane.showMessageDialog(null, "Ingrese una opción valida 1-5");
+                                }
+                            } catch (Exception e) {
+                                JOptionPane.showMessageDialog(null, "Ingrese una opción valida 1-5");
+                            }
+                        }
+
+                        /* 
                         
-                        StringBuilder vehiculos = new StringBuilder();
-                        
-                        if(listaAuto.isEmpty() ){
+                        if(listaAuto.isEmpty()){
                             JOptionPane.showMessageDialog(null, "No hay Autos registrados");
                         }else if (listaMotocicleta.isEmpty()){
-                            JOptionPane.showMessageDialog(null, "No hay Autos registrados");
+                            JOptionPane.showMessageDialog(null, "No hay Motocicletas registradas");
                         }
                         
                         for(Auto nombresVehiculos: listaAuto){
                             
-                            vehiculos.append("Autos").append(nombresVehiculos.getMarca());
+                            vehiculos.append("Autos \n").append(nombresVehiculos.getMarca());
                             
                         }
                         
@@ -120,8 +155,7 @@ public class GestionVehiculos {
                             nombresVehiculos.getMarca();
                         }
                         
-                        JOptionPane.showMessageDialog(null, vehiculos.toString());
-                        
+                        JOptionPane.showMessageDialog(null, vehiculos.toString());*/
                         break;
 
                     case 3:
@@ -142,7 +176,6 @@ public class GestionVehiculos {
             }
 
         }
-
 
     }
 }
