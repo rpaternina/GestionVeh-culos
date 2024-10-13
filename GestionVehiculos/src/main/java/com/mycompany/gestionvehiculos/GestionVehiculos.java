@@ -30,7 +30,7 @@ public class GestionVehiculos {
             try {
                 int menu = Integer.parseInt(JOptionPane.showInputDialog(null, "GESTIÓN DE VEHÍCULO \n"
                         + "1: Agregar vehículo \n"
-                        + "2: Mostrar vehículo \n"
+                        + "2: Mostrar vehículos \n"
                         + "3: Buscar vehículo por matricula \n"
                         + "4: Calcular costo total de mantenimiento \n"
                         + "5: Salir"));
@@ -98,7 +98,30 @@ public class GestionVehiculos {
                         }
 
                         break;
+                        
+                    //Mostrar todos los vehículos    
                     case 2:
+                        
+                        StringBuilder vehiculos = new StringBuilder();
+                        
+                        if(listaAuto.isEmpty() ){
+                            JOptionPane.showMessageDialog(null, "No hay Autos registrados");
+                        }else if (listaMotocicleta.isEmpty()){
+                            JOptionPane.showMessageDialog(null, "No hay Autos registrados");
+                        }
+                        
+                        for(Auto nombresVehiculos: listaAuto){
+                            
+                            vehiculos.append("Autos").append(nombresVehiculos.getMarca());
+                            
+                        }
+                        
+                        for(Motocicleta nombresVehiculos: listaMotocicleta){
+                            nombresVehiculos.getMarca();
+                        }
+                        
+                        JOptionPane.showMessageDialog(null, vehiculos.toString());
+                        
                         break;
 
                     case 3:
