@@ -146,10 +146,9 @@ public class GestionVehiculos {
                     case 3:
                         boolean salirMenu4 = true;
                         boolean placaEncontrada = false;
-                        StringBuilder placa = new StringBuilder();
-                        
-                        try {
-                            while (salirMenu4) {
+
+                        while (salirMenu4) {
+                            try {
                                 int menu4 = Integer.parseInt(JOptionPane.showInputDialog(null, "VEHÍCULOS POR MATRICULA \n"
                                         + "1: Autos \n"
                                         + "2: Motocicletas \n"
@@ -158,29 +157,33 @@ public class GestionVehiculos {
                                 switch (menu4) {
                                     case 1:
 
-                                        String matriculaAuto = JOptionPane.showInputDialog(null, "Matricula").toUpperCase();
+                                        String matriculaAuto = JOptionPane.showInputDialog(null, "Matricula");
 
-                                        if (!listaAuto.isEmpty()) {
+                                        if (listaAuto.isEmpty()) {
+                                            JOptionPane.showMessageDialog(null, "No hay autos registrados");
+
+                                        } else {
+                                            StringBuilder placa = new StringBuilder();
                                             for (Auto autoPlaca : listaAuto) {
-                                                
+
                                                 if (matriculaAuto.equals(autoPlaca.getMatricula())) {
-                                                    placa.append(autoPlaca.getMarca())
-                                                            .append(autoPlaca.getModelo())
-                                                            .append(autoPlaca.getNumeroPuertas())
-                                                            .append(autoPlaca.getModelo())
-                                                            .append(autoPlaca.getMatricula());
+                                                    placa
+                                                            .append("Marca \n").append(autoPlaca.getMarca().toUpperCase())
+                                                            .append("Modelo \n").append(autoPlaca.getModelo())
+                                                            .append("# Puertas \n").append(autoPlaca.getNumeroPuertas())
+                                                            .append("Matricula \n").append(autoPlaca.getMatricula().toUpperCase());
                                                     placaEncontrada = true;
                                                     break;
-                                                    
-                                                }else{
-                                                    JOptionPane.showMessageDialog(null, "No existe");
+
                                                 }
 
                                             }
-                                            JOptionPane.showMessageDialog(null, placa.toString());
+                                            if (placaEncontrada) {
+                                                JOptionPane.showMessageDialog(null, "Auto" + placa.toString());
+                                            } else {
+                                                JOptionPane.showMessageDialog(null, "No existe");
+                                            }
 
-                                        } else {
-                                            JOptionPane.showMessageDialog(null, "No hay autos registrados");
                                         }
 
                                         break;
@@ -190,13 +193,14 @@ public class GestionVehiculos {
 
                                     case 3:
                                         salirMenu4 = false;
+                                        break;
                                     default:
                                         JOptionPane.showMessageDialog(null, "Ingrese una opción valida 1-5");
                                 }
+                            } catch (Exception e) {
+                                JOptionPane.showMessageDialog(null, "Ingrese una opción valida 1-5");
                             }
 
-                        } catch (Exception e) {
-                            JOptionPane.showMessageDialog(null, "Ingrese una opción valida 1-5");
                         }
 
                         break;
