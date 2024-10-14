@@ -146,6 +146,7 @@ public class GestionVehiculos {
                     case 3:
                         boolean salirMenu4 = true;
                         boolean placaEncontrada = false;
+                        boolean placaEncontradaMoto = false;
 
                         while (salirMenu4) {
                             try {
@@ -169,9 +170,9 @@ public class GestionVehiculos {
                                                 if (matriculaAuto.equals(autoPlaca.getMatricula())) {
                                                     placa
                                                             .append("Marca \n").append(autoPlaca.getMarca().toUpperCase())
-                                                            .append("Modelo \n").append(autoPlaca.getModelo())
-                                                            .append("# Puertas \n").append(autoPlaca.getNumeroPuertas())
-                                                            .append("Matricula \n").append(autoPlaca.getMatricula().toUpperCase());
+                                                            .append("\nModelo \n").append(autoPlaca.getModelo())
+                                                            .append("\n# Puertas \n").append(autoPlaca.getNumeroPuertas())
+                                                            .append("\nMatricula \n").append(autoPlaca.getMatricula().toUpperCase());
                                                     placaEncontrada = true;
                                                     break;
 
@@ -179,7 +180,7 @@ public class GestionVehiculos {
 
                                             }
                                             if (placaEncontrada) {
-                                                JOptionPane.showMessageDialog(null, "Auto" + placa.toString());
+                                                JOptionPane.showMessageDialog(null, "Auto \n" + placa.toString());
                                             } else {
                                                 JOptionPane.showMessageDialog(null, "No existe");
                                             }
@@ -189,6 +190,35 @@ public class GestionVehiculos {
                                         break;
 
                                     case 2:
+                                        String matriculaMoto = JOptionPane.showInputDialog(null, "Matricula");
+
+                                        if (listaMotocicleta.isEmpty()) {
+                                            JOptionPane.showMessageDialog(null, "No hay Motos registradas");
+
+                                        } else {
+                                            StringBuilder placa = new StringBuilder();
+                                            for (Motocicleta motoPlaca : listaMotocicleta) {
+
+                                                if (matriculaMoto.equals(motoPlaca.getMatricula())) {
+                                                    placa
+                                                            .append("Marca \n").append(motoPlaca.getMarca().toUpperCase())
+                                                            .append("\nModelo \n").append(motoPlaca.getModelo())
+                                                            .append("\nCilindraje \n").append(motoPlaca.getCilindraje())
+                                                            .append("\nMatricula \n").append(motoPlaca.getMatricula().toUpperCase());
+                                                    placaEncontradaMoto = true;
+                                                    break;
+
+                                                }
+
+                                            }
+                                            if (placaEncontradaMoto) {
+                                                JOptionPane.showMessageDialog(null, "Motocicleta \n" + placa.toString());
+                                            } else {
+                                                JOptionPane.showMessageDialog(null, "No existe");
+                                            }
+
+                                        }
+
                                         break;
 
                                     case 3:
