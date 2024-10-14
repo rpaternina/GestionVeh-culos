@@ -6,7 +6,6 @@ cada tipo de vehículo. Además, debe permitir realizar operaciones
 como mostrar los vehículos registrados, buscar por matrícula, y calcular 
 el costo total de mantenimiento para todos los vehículos.
  */
-
 package com.mycompany.gestionvehiculos;
 
 import java.util.ArrayList;
@@ -16,8 +15,7 @@ import javax.swing.JOptionPane;
 public class GestionVehiculos {
 
     public static void main(String[] args) {
-        
-        
+
         List<Auto> listaAuto = new ArrayList<Auto>();
 
         List<Motocicleta> listaMotocicleta = new ArrayList<Motocicleta>();
@@ -54,11 +52,11 @@ public class GestionVehiculos {
                                         int modelo = Integer.parseInt(JOptionPane.showInputDialog(null, "Modelo"));
                                         float mantenimiento = Float.parseFloat(JOptionPane.showInputDialog(null, "Costo del mantenimiento"));
 
-                                        Auto nuevoAuto = new Auto(numeroPuertas,matricula, marca, modelo, mantenimiento);
-                                        
+                                        Auto nuevoAuto = new Auto(numeroPuertas, matricula, marca, modelo, mantenimiento);
+
                                         listaAuto.add(nuevoAuto);
-                                                                              
-                                        JOptionPane.showMessageDialog(null,"Costo mantenimiento: " + nuevoAuto.calcularCostoMantenimiento());
+
+                                        JOptionPane.showMessageDialog(null, "Costo mantenimiento: " + nuevoAuto.calcularCostoMantenimiento());
 
                                         break;
                                     case 2:
@@ -144,7 +142,63 @@ public class GestionVehiculos {
 
                         break;
 
+                    //Buscar vehículo por matricula    
                     case 3:
+                        boolean salirMenu4 = true;
+                        boolean placaEncontrada = false;
+                        StringBuilder placa = new StringBuilder();
+                        
+                        try {
+                            while (salirMenu4) {
+                                int menu4 = Integer.parseInt(JOptionPane.showInputDialog(null, "VEHÍCULOS POR MATRICULA \n"
+                                        + "1: Autos \n"
+                                        + "2: Motocicletas \n"
+                                        + "3: Menú principal"));
+
+                                switch (menu4) {
+                                    case 1:
+
+                                        String matriculaAuto = JOptionPane.showInputDialog(null, "Matricula").toUpperCase();
+
+                                        if (!listaAuto.isEmpty()) {
+                                            for (Auto autoPlaca : listaAuto) {
+                                                
+                                                if (matriculaAuto.equals(autoPlaca.getMatricula())) {
+                                                    placa.append(autoPlaca.getMarca())
+                                                            .append(autoPlaca.getModelo())
+                                                            .append(autoPlaca.getNumeroPuertas())
+                                                            .append(autoPlaca.getModelo())
+                                                            .append(autoPlaca.getMatricula());
+                                                    placaEncontrada = true;
+                                                    break;
+                                                    
+                                                }else{
+                                                    JOptionPane.showMessageDialog(null, "No existe");
+                                                }
+
+                                            }
+                                            JOptionPane.showMessageDialog(null, placa.toString());
+
+                                        } else {
+                                            JOptionPane.showMessageDialog(null, "No hay autos registrados");
+                                        }
+
+                                        break;
+
+                                    case 2:
+                                        break;
+
+                                    case 3:
+                                        salirMenu4 = false;
+                                    default:
+                                        JOptionPane.showMessageDialog(null, "Ingrese una opción valida 1-5");
+                                }
+                            }
+
+                        } catch (Exception e) {
+                            JOptionPane.showMessageDialog(null, "Ingrese una opción valida 1-5");
+                        }
+
                         break;
 
                     case 4:
