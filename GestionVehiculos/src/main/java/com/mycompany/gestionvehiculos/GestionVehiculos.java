@@ -237,6 +237,8 @@ public class GestionVehiculos {
 
                     //calcular costo mantenimeinto        
                     case 4:
+                        
+                        boolean salirMenu5 = true;
                         break;
 
                     case 5:
