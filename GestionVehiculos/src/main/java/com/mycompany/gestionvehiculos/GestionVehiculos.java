@@ -97,6 +97,7 @@ public class GestionVehiculos {
                             }
                         }
 
+                        
                         break;
 
                     //Mostrar todos los vehículos    
@@ -250,6 +251,7 @@ public class GestionVehiculos {
                     case 4:
                         boolean salirMenu5 = true;
                         double costoTotal = 0;
+                        double cosTotalMotos = 0;
                         while (salirMenu5) {
                             try {
                                 int menu3 = Integer.parseInt(JOptionPane.showInputDialog(null, "COSTO TOTAL DE MANTENIMIENTO \n"
@@ -282,16 +284,25 @@ public class GestionVehiculos {
                                         break;
                                     case 2:
                                         StringBuilder motos = new StringBuilder();
+                                        
+                                        
                                         if (listaMotocicleta.isEmpty()) {
                                             JOptionPane.showMessageDialog(null, "No hay Motos registradas");
                                         } else {
                                             for (Motocicleta mostrarMotos : listaMotocicleta) {
+                                                
+                                                double costoMotos = mostrarMotos.calcularCostoMantenimiento();
+                                                cosTotalMotos += costoMotos;
+                                                
                                                 motos.append("\nMarca: ").append(mostrarMotos.getMarca().toUpperCase()).append("\n")
                                                         .append("Modelo: ").append(mostrarMotos.getModelo()).append("\n")
-                                                        .append("Cilindraje: ").append(mostrarMotos.getCilindraje());
+                                                        .append("Cilindraje: ").append(mostrarMotos.getCilindraje()).append("\n")
+                                                        .append("Costo de mantenimiento: ").append(mostrarMotos.calcularCostoMantenimiento());
                                             }
 
-                                            JOptionPane.showMessageDialog(null, "Motocicletas" + motos.toString());
+                                            JOptionPane.showMessageDialog(null, "Motocicletas" + motos.toString() + "\n"
+                                                    + "---------------------------------------------" + "\n"
+                                                    + "Costo toal: " + cosTotalMotos);
                                         }
                                         break;
                                     case 3:
