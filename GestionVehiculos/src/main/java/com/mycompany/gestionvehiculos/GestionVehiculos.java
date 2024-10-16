@@ -45,30 +45,44 @@ public class GestionVehiculos {
 
                                 switch (menu2) {
                                     case 1:
-
+                                        boolean guardarAuto = true;
                                         int numeroPuertas = Integer.parseInt(JOptionPane.showInputDialog(null, "Numero de puertas"));
                                         String marca = JOptionPane.showInputDialog(null, "Marca");
                                         String matricula = JOptionPane.showInputDialog(null, "Matricula");
                                         int modelo = Integer.parseInt(JOptionPane.showInputDialog(null, "Modelo"));
                                         float mantenimiento = Float.parseFloat(JOptionPane.showInputDialog(null, "Costo del mantenimiento"));
+                                        
+                                        
+                                        if (guardarAuto) {
 
-                                        Auto nuevoAuto = new Auto(numeroPuertas, matricula, marca, modelo, mantenimiento);
+                                            Auto nuevoAuto = new Auto(numeroPuertas, matricula, marca, modelo, mantenimiento);
+                                            listaAuto.add(nuevoAuto);
+                                            JOptionPane.showMessageDialog(null, "Auto registrado con exito!");
+                                        }else{
+                                            JOptionPane.showMessageDialog(null, "Error en el registro");
+                                        }
 
-                                        listaAuto.add(nuevoAuto);
 
-                                        JOptionPane.showMessageDialog(null, "Costo mantenimiento: " + nuevoAuto.calcularCostoMantenimiento());
+                                        //JOptionPane.showMessageDialog(null, "Costo mantenimiento: " + nuevoAuto.calcularCostoMantenimiento());
 
                                         break;
                                     case 2:
-
+                                        
+                                        boolean guardarMotocicleta = true;
                                         int cilindraje = Integer.parseInt(JOptionPane.showInputDialog(null, "Cilindraje"));
                                         String marcaMoto = JOptionPane.showInputDialog(null, "Marca");
                                         String matriculaMoto = JOptionPane.showInputDialog(null, "Matricula");
                                         int modeloMoto = Integer.parseInt(JOptionPane.showInputDialog(null, "Modelo"));
                                         float mantenimientoMoto = Float.parseFloat(JOptionPane.showInputDialog(null, "Costo del mantenimiento"));
 
-                                        Motocicleta nuevaMotocicleta = new Motocicleta(cilindraje, matriculaMoto, marcaMoto, modeloMoto, mantenimientoMoto);
+                                        if(guardarMotocicleta){
+                                            Motocicleta nuevaMotocicleta = new Motocicleta(cilindraje, matriculaMoto, marcaMoto, modeloMoto, mantenimientoMoto);
                                         listaMotocicleta.add(nuevaMotocicleta);
+                                        JOptionPane.showMessageDialog(null, "Motocicleta registrada con exito");
+                                        }else{
+                                            JOptionPane.showMessageDialog(null, "Error en el registro");
+                                        }
+                                        
 
                                         JOptionPane.showMessageDialog(null, "Costo mantenimiento: " + nuevaMotocicleta.calcularCostoMantenimiento());
 
@@ -239,6 +253,7 @@ public class GestionVehiculos {
                     case 4:
                         
                         boolean salirMenu5 = true;
+                        
                         break;
 
                     case 5:
