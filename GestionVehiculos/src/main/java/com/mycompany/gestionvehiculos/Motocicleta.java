@@ -4,7 +4,7 @@ public class Motocicleta extends Vehiculo{
 
     private int cilindraje;
 
-    public Motocicleta(int cilindraje, String matricula, String marca, int modelo, float costoMantenimiento) {
+    public Motocicleta(int cilindraje, String matricula, String marca, int modelo, double costoMantenimiento) {
         super(matricula, marca, modelo, costoMantenimiento);
         this.cilindraje = cilindraje;
     }
@@ -18,9 +18,9 @@ public class Motocicleta extends Vehiculo{
     }
     
     @Override
-    public float calcularCostoMantenimiento() {
+    public double calcularCostoMantenimiento() {
         
-        float costoAuto = (costoMantenimiento * cilindraje) / 100; 
+        double costoAuto = (costoMantenimiento * cilindraje) / 100; 
         return costoAuto;
     }
     

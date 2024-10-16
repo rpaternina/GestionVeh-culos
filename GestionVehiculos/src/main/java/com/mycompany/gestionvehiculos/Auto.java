@@ -5,7 +5,7 @@ public class Auto extends Vehiculo{
 
     private int numeroPuertas;
 
-    public Auto(int numeroPuertas, String matricula, String marca, int modelo, float costoMantenimiento) {
+    public Auto(int numeroPuertas, String matricula, String marca, int modelo, double costoMantenimiento) {
         super(matricula, marca, modelo, costoMantenimiento);
         this.numeroPuertas = numeroPuertas;
     }
@@ -19,9 +19,9 @@ public class Auto extends Vehiculo{
     }
 
     @Override
-    public float calcularCostoMantenimiento() {
+    public double calcularCostoMantenimiento() {
         
-        float costoAuto = costoMantenimiento * numeroPuertas; 
+        double costoAuto = costoMantenimiento * numeroPuertas; 
         return costoAuto;
     }
     
