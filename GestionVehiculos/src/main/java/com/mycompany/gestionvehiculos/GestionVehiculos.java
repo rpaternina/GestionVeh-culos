@@ -51,7 +51,7 @@ public class GestionVehiculos {
                                         String matricula = JOptionPane.showInputDialog(null, "Matricula");
                                         int modelo = Integer.parseInt(JOptionPane.showInputDialog(null, "Modelo"));
                                         //float mantenimiento = Float.parseFloat(JOptionPane.showInputDialog(null, "Costo del mantenimiento"));
-                                        
+
                                         double mantenimiento = Double.parseDouble(JOptionPane.showInputDialog(null, "Costo del mantenimiento"));
 
                                         if (guardarAuto) {
@@ -97,7 +97,6 @@ public class GestionVehiculos {
                             }
                         }
 
-                        
                         break;
 
                     //Mostrar todos los vehículos    
@@ -284,16 +283,15 @@ public class GestionVehiculos {
                                         break;
                                     case 2:
                                         StringBuilder motos = new StringBuilder();
-                                        
-                                        
+
                                         if (listaMotocicleta.isEmpty()) {
                                             JOptionPane.showMessageDialog(null, "No hay Motos registradas");
                                         } else {
                                             for (Motocicleta mostrarMotos : listaMotocicleta) {
-                                                
+
                                                 double costoMotos = mostrarMotos.calcularCostoMantenimiento();
                                                 cosTotalMotos += costoMotos;
-                                                
+
                                                 motos.append("\nMarca: ").append(mostrarMotos.getMarca().toUpperCase()).append("\n")
                                                         .append("Modelo: ").append(mostrarMotos.getModelo()).append("\n")
                                                         .append("Cilindraje: ").append(mostrarMotos.getCilindraje()).append("\n")

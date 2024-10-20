@@ -1,6 +1,6 @@
 package com.mycompany.gestionvehiculos;
 
-public class Vehiculo {
+public abstract class Vehiculo {
     
     protected String matricula;
     protected String marca;
@@ -46,8 +46,6 @@ public class Vehiculo {
         this.costoMantenimiento = costoMantenimiento;
     }
     
-    public double calcularCostoMantenimiento(){
-        return costoMantenimiento;
-    }
-    
+    public abstract double calcularCostoMantenimiento();
+        
 }
